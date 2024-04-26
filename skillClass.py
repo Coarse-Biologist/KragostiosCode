@@ -11,7 +11,7 @@ class Skill:
         self.heal = heal #7
         self.buff = buff #8
         self.debuff = debuff #9
-        self.skill_attributes_dict = (f"Skill name: {skill_name}\n Description: {description}\n Duration: {duration} turns \n Cost: {cost} mana points \n Damage: {damage} \n Lingering damage: {lingering_damage}\n Healing: {heal}\n Buffs applied: {buff}\n Debuffs applied: {debuff}")
+        self.skill_attributes_dict = (f"Skill name: {skill_name}\n Description: {description}\n Duration: {duration} turns \n Cost: {cost} mana points \n Damage: {damage} \n Lingering damage: {lingering_damage}\n Healing: {heal}\n Buffs applied: {buff}\n Debuffs applied: {debuff}") #10
     def __str__(self):
           return self.skill_attributes_dict
     

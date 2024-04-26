@@ -15,7 +15,12 @@ class Map:
         self.quest_location = []
     #    self.x_boundary = (-100, 100)
     #    self.y_boundary = ()
-        
+
+    def check_environment(self): # map Class function
+        environment_possibilities = ("jungel", "cliffs", "forest", "canyons", "grasslands", "icy terrain", "muddy terrain", "subterranean caves", "quick sand", "barren wasteland", "cactus-filled desert", "deserted village", "a slowly flowing river", "a treacherously fleet and rocky river")
+        the_environment = random.choice(environment_possibilities)
+        print(the_environment)
+        return the_environment
 
     def get_locations(self, amount, location_type : str) -> list: # dont allow amount to be larger than available locations/3
         dict1 = {}

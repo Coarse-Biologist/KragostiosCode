@@ -174,6 +174,10 @@ class Player:
             self.choose_new_skill()
             self.choose_stat_increase()
 
+
+
+
+
 #player1 = Player("Amy", [0, 0], 100, 10, [{"Item": "Amount"}], ["Kneel", "Stand", "Sit", "Squeal"], [])
 
 
