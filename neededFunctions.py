@@ -156,6 +156,35 @@ def combat_intro(self, player_instance, enemy_list):
     
             pass
 
+def check_environment(self): # map Class function
+    environment_possibilities = ("jungel", "cliffs", "forest", "canyons", "grasslands", "icy terrain", "muddy terrain", "subterranean caves", "quick sand", "barren wasteland", "cactus-filled desert", "deserted village", "a slowly flowing river", "a treacherously fleet and rocky river")
+        the_environment = random.choice(environment_possibilities)
+    print(the_environment)
+    return the_environment
+
+def use_environment(self, the_environment): # creatureClass skill
+    if the_environment == "jungle":
+        self.creature_actions.append(climb())
+    elif the_environment == "cliffs":
+    elif the_environment == "forest":
+    elif the_environment == "canyons":
+    elif the_environment == "grasslands":
+    elif the_environment == "icy terrain":
+    elif the_environment == "muddy terrain":
+    elif the_environment == "subterranean caves":
+    elif the_environment == "quick sand":
+    elif the_environment == "barren wasteland":
+    elif the_environment == "cactus-filled desert":
+    elif the_environment == "deserted village":
+    elif the_environment == "a slowly flowing river":
+    elif the_environment == "a treacherously fleet snd rocky river":
+        
+creature_climb = Skill("Climb", "uses the environment to ascend to high ground", 99, 0, 0, 0, 0, [climb()], [], {})
+
+def climb(self): #buff function
+    pass # decrease chance of being hit
+
+
 
 
 
