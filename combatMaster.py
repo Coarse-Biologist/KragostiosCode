@@ -48,7 +48,7 @@ class CombatMaster:
         choice = choice_int_checker(min,max)
         return choice # returns the INDEX of a skill or summon selected by the player 
 
-    def target_select(self, player_instance, has_summon, enemy_type):
+    def target_select(self, player_instance, has_summon, enemy_list):
 
         pass
         
