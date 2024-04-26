@@ -4,6 +4,7 @@ from simplePlayerClass import *
 from SummonsClass import *
 from creatureClass import *
 from printSlowlyFunction import *
+from mapCreator import *
 
 class CombatMaster:
     def __init__(self, duration_dict = {}):

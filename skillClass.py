@@ -33,6 +33,8 @@ class Skill:
             skill_charactaristic_dict.setdefault("buff", (self.buff))
         if len(self.debuff) > 0:
             skill_charactaristic_dict.setdefault("debuff", (self.debuff))
+        if self.skill_name == "push":
+            skill_charactaristic_dict.setdefault("push", None)
         print(self.skill_attributes_dict)
         return skill_charactaristic_dict     
          
@@ -43,20 +45,25 @@ class Skill:
 def climb(self): #buff function
     pass # decrease chance of being hit
 
+### debuffs ###
+def push(self):
+    pass
+
 
 #skill library (needs to be organized and expanded)
         
-simple_attack = Skill("Attack", "player strikes", 1, 0, 5, 1, 0, [], [], {})
+simple_attack = Skill("Attack", "A simple, but quick attack.", 1, 0, 5, 1, 0, [climb], [], {})
 
-godsmack_attack = Skill("Obliterate", "the divine being strikes", 1, 100, 100, 0, 0, [], [], {})
+godsmack_attack = Skill("Obliterate", "A divine strike.", 1, 100, 100, 0, 0, [], [], {})
 
-simple_heal = Skill("Touch of the healer", "player uses a heal", 1, 20, 0, 0, 10, [], [], {})
+simple_heal = Skill("Touch of the healer", "A simple healing spell", 1, 20, 0, 0, 10, [], [], {})
 summon_livingFire = Skill("Summon Living Fire", "Fire and intellect leave you to become an independent, warming force", 20, 60, 0, 0, 0, [], [], {})
     
-weak_invis = Skill("Obscure", "You are wrapped in shadow and obscurity", 5, 60, 0, 0, 10, [], ["lower_hitchance1"], {})
+weak_invis = Skill("Obscure", "An ability that are wraps the caster in shadow and obscurity", 5, 60, 0, 0, 10, [], ["lower_hitchance1"], {})
 
-tentacle_choke = Skill("Tentacle Choke", "The many-armed monster wraps its tentacles around its target and squeezes with fearful force", 1, 10, 20, 0, 0, [], [], {} ) #octopus_fey and similar creatures have access.
+tentacle_choke = Skill("Tentacle Choke", "An ability of many-armed monsters to wrap their tentacles around their target and squeezes with fearful force.", 1, 10, 20, 0, 0, [], [], {} ) #octopus_fey and similar creatures have access.
 
-creature_climb = Skill("Climb", "uses the environment to ascend to high ground", 99, 0, 0, 0, 0, [climb()], [], {})
+creature_climb = Skill("Climb", "Use the environment to ascend to high ground.", 99, 0, 0, 0, 0, [climb], [], {})
 
+creature_push = Skill("Push", "Give an all-out shove. What is behind the push? Whats behind the target?", 1, 0, 0, 0, 0, [], [], {})
 

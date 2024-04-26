@@ -14,22 +14,35 @@ class Creature:
 
         self.danger_level = danger_level
 
-    #def use_environment(self, the_environment): # creatureClass skill
-    # if the_environment == "jungle":
-    #     self.creature_actions.append(sklz.climb())
-    # elif the_environment == "cliffs":
-    # elif the_environment == "forest":
-    # elif the_environment == "canyons":
-    # elif the_environment == "grasslands":
-    # elif the_environment == "icy terrain":
-    # elif the_environment == "muddy terrain":
-    # elif the_environment == "subterranean caves":
-    # elif the_environment == "quick sand":
-    # elif the_environment == "barren wasteland":
-    # elif the_environment == "cactus-filled desert":
-    # elif the_environment == "deserted village":
-    # elif the_environment == "a slowly flowing river":
-    # elif the_environment == "a treacherously fleet snd rocky river":
+    def add_environment_use(self, the_environment): # creatureClass skill
+        if the_environment == "jungle":
+            self.creature_actions.append(sklz.climb())
+        elif the_environment == "cliffs":
+           self.creature_actions.append(sklz.push())
+        elif the_environment == "forest":
+           self.creature_actions.append(sklz.climb())
+        elif the_environment == "canyons":
+           self.creature_actions.append(sklz.push())
+        elif the_environment == "grasslands":
+           pass
+        elif the_environment == "icy terrain":
+           self.creature_actions.append(sklz.push())
+        elif the_environment == "muddy terrain":
+           self.creature_actions.append(sklz.push())
+        elif the_environment == "subterranean caves":
+           self.creature_actions.append(sklz.push())
+        elif the_environment == "quick sand":
+           self.creature_actions.append(sklz.push())
+        elif the_environment == "barren wasteland":
+           pass
+        elif the_environment == "cactus-filled desert":
+           self.creature_actions.append(sklz.push())
+        elif the_environment == "deserted village":
+           pass
+        elif the_environment == "a slowly flowing river":
+           self.creature_actions.append(sklz.push())
+        elif the_environment == "a treacherously fleet snd rocky river":
+           self.creature_actions.append(sklz.push())
         
 octopus_feyAlpha = Creature("Alpha Grizzly Octopus", "A fur-covered octopus that prominently displays his single beak.", [sklz.simple_attack, sklz.tentacle_choke], 40, 1)
 

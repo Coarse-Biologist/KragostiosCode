@@ -24,7 +24,6 @@ class Map:
 
     def get_locations(self, amount, location_type : str) -> list: # dont allow amount to be larger than available locations/3
         dict1 = {}
-
         #self.location_type = location_type
         i = amount
         while i > 0:
@@ -42,7 +41,6 @@ class Map:
         return location_type
 
     def compareLocations(self, player_location: tuple, all_locations):
-
         if player_location in all_locations["Enemy"]:
             return "danger"
         elif player_location in all_locations["Merchant"]:
@@ -55,7 +53,7 @@ class Map:
             print("Nothing to see here!")
             return "clear"
     
-map1 = Map()
+map1 = Map(None)
 
-map1.get_locations(3, "Enemy")
-map1.get_locations(3, "Merchant")
+#map1.get_locations(3, "Enemy")
+#map1.get_locations(3, "Merchant")
