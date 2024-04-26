@@ -52,7 +52,11 @@ class CombatMaster:
 
         pass
         
-
+    def summon_turn(player_instance):
+        the_environment = Map.check_environment()
+        for summon in  player_instance.has_summon:          ####### has summon means that they can be summon or that they are summoned?
+            creaturefunc = sklz.add_environment_use()
+            summon.creaturefunc(the_environment)
 
     def effect_handler(self, skill_instance): 
         skill_effects_dict = skill_instance.skill_at_checker()
@@ -72,6 +76,9 @@ class CombatMaster:
             self.apply_buff(self, skill_instance)
         if "debuff" in skill_effects_dict:
             self.apply_debuff(self, skill_instance)
+        if "push" in skill_effects_dict:
+            pass
+
     
 
     def duration_counter(self, skill_instance):
@@ -104,6 +111,5 @@ squealfest = CombatMaster()
 enemy_list = ["squeal", "sit", "bow"]
 #squealfest.skill_select(player1)
 
-#squealfest.combat_intro(player1, [octopus_fey, octopus_feyAlpha, octopus_feyBeta])
-
+squealfest.summon_turn([octopus_fey, octopus_feyAlpha, octopus_feyBeta])
 
