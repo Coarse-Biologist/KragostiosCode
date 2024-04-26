@@ -39,8 +39,9 @@ class Skill:
 
 
 
-
-
+### buffs ###
+def climb(self): #buff function
+    pass # decrease chance of being hit
 
 
 #skill library (needs to be organized and expanded)
@@ -56,7 +57,6 @@ weak_invis = Skill("Obscure", "You are wrapped in shadow and obscurity", 5, 60, 
 
 tentacle_choke = Skill("Tentacle Choke", "The many-armed monster wraps its tentacles around its target and squeezes with fearful force", 1, 10, 20, 0, 0, [], [], {} ) #octopus_fey and similar creatures have access.
 
-
-
+creature_climb = Skill("Climb", "uses the environment to ascend to high ground", 99, 0, 0, 0, 0, [climb()], [], {})
 
 
