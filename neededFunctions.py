@@ -16,13 +16,7 @@ def compareLocations(player_instance, map_instance):
     ### level up functions ###
 
     self = 4
-def xp_up(self, difficulty_level):
-    self.xp_progress += difficulty_level * 10
-    if self.xp_progress >= self.max_level_xp:
-        self.xp_progress -= self.max_level_xp
-        self.level_up()
-    else:
-        self.level_up()
+
 
 def level_up(self):
     self.level +=1
