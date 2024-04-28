@@ -51,7 +51,7 @@ octopus_fey = Creature("Grizzly Octopus", "A fur-covered octopus that displays h
 
 octopus_feyBeta = Creature("Beta Grizzly Octopus", "A fur-covered octopus that insecurely displays his single beak.", [sklz.simple_attack, sklz.tentacle_choke], 25, 1)
 
-
+eckel_monster = Creature("Muscle_Drooler", "A ten foot tall, semihumanoid, bent over its front-hands with a long and pointed tail. The entire body is intensely muscle-bound as though cultivated and extremely steroid-infused. The head consists of four eyes located in all quadrants of the head, and a membraneous mouth which opens extends up to one sixth of thr body length and contains a cave of jagged bone teeth.", [sklz.simple_attack], 60, 1)
 
 
 

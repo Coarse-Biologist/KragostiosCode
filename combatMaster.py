@@ -7,9 +7,11 @@ from printSlowlyFunction import *
 from mapCreator import *
 
 class CombatMaster:
-    def __init__(self, duration_dict = list):    ## list of dicts
+    def __init__(self, duration_dict: dict):    ## list of dicts
         self.duration_dict = duration_dict
-        pass
+
+    def add_target (self, target):
+        self.duration_dict.setdefault(target, {}) 
 
     def combat_intro(self, player_instance, enemy_list):
         if len(enemy_list) == 1:
@@ -48,36 +50,53 @@ class CombatMaster:
         choice = choice_int_checker(min,max)
         return choice # returns the INDEX of a skill or summon selected by the player 
 
-    def target_select(self, player_instance, enemy_list):
-        self.combatants_list_create(player_instance, player_instance.has_summon, enemy_list)
+    def target_select(self, player_instance, enemy_list, skill_instance):
         print("At whom do you wish to aim this skill?")
         x = 0
-        option_number = len(player_instance.has_summon) + len(enemy_list)
-        while x < option_number:
-            current_option = self.combatants_list[x]
-            if "your summon" in current_option:
-                print(f"Press {x + 1}: to use skill on {current_option}.")
-            else:
-                print(f"Press {x + 1}: to use skill on {current_option}.")
-            x+=1
-        print(f"Press {option_number + 1}: to use skill on yourself.")
+        enemy_number = len(enemy_list)
+        summons = len(player_instance.has_summon)
+        while x < enemy_number:
+            current_option = enemy_list[x]
+            for enemy in enemy_list:
+                print(f"Press {x + 1}: to use skill on {current_option.creature_name}.")
+                x += 1
+            if summons != 0:
+                y = 0
+                summon_options = player_instance.has_summon[y]
+                for summon in player_instance.has_summon:
+                    print(f"Press {x + 1}: to use skill on {summon_options.creature_name}(your summon).")
+                    y += 1
+        print(f"Press {enemy_number + summons + 1}: to use skill on yourself.")
         min = 0
-        max = option_number
+        max = enemy_number + summons + 1
         choice = choice_int_checker(min, max)
-        target = self.combatants_list[choice]
-        return target
-
-        
+        if choice <= enemy_number:
+            target = enemy_list[choice] 
+            self.add_target (target) 
+            self.skill_duration_adder(target, skill_instance)                                    # target is an enemy
+            return target
+        elif choice > enemy_number + summons:
+            target = "self"
+            self.add_target (target) 
+            self.skill_duration_adder(target, skill_instance) #target is self
+            return target
+        else:
+            target = player_instance.has_summon[choice - enemy_number -1]   #target is asummons
+            self.add_target (target)
+            self.skill_duration_adder(target, skill_instance)
+            return target
+        pllayer_instance = {}
+   
     def summon_turn(player_instance):
         the_environment = Map.check_environment()
-        for summon in  player_instance.has_summon:          ####### has summon means that they can be summon or that they are summoned?
+        for summon in  player_instance.has_summon:          ####### has summon means that they are summoned
             creaturefunc = sklz.add_environment_use()
             summon.creaturefunc(the_environment)
 
     def effect_handler(self, skill_instance): 
         skill_effects_dict = skill_instance.skill_at_checker()
         if "duration" in skill_effects_dict:
-            self.duration_counter(self, skill_instance)
+            self.skill_duration_counter(self, skill_instance)
         if "cost" in skill_effects_dict:
             self.lose_mana(self, skill_instance)
         if "damage" in skill_effects_dict and "lingering damage" in skill_effects_dict:
@@ -95,23 +114,30 @@ class CombatMaster:
         if "push" in skill_effects_dict:
             pass
 
-    def skill_duration_adder(self, skill_instance): 
+    def skill_duration_adder(self, target, skill_instance): 
         counter = skill_instance.duration
         name = skill_instance.skill_name
-        self.duration_dict.setdefault(name, counter)
+        self.duration_dict[target].setdefault(name, counter)
+        print(self.duration_dict)
         return self.duration_dict
     def combatants_list_create(self, player_instance, has_summon, enemy_list):
         self.combatants_list = []
         for enemy in enemy_list:
-            self.combatants_list.append(enemy.creature_name)
+            self.combatants_list.append(enemy)
         if len(has_summon) != 0:
             for summon in has_summon:
-                self.combatants_list.append(f"{summon.creature_name} (your summon)")
-        self.combatants_list.append(player_instance.player_name)
+                self.combatants_list.append(summon)
+        self.combatants_list.append(player_instance)
         return self.combatants_list
     
-    def duration_counter(self, skill_instance):
-        pass
+    def decrement_duration(self, skill_duration):
+        skill_duration = self.duration_dict.get(skill_instance.skill_name)
+        if skill_instance>1:
+            skill_duration -= 1
+            return skill_duration
+        elif skill_duration <= 1:
+            duration_dict.pop(skill_instance.skill_name)
+            return duration_dict
 
     def lose_mana(self, skill_instance):
         pass
@@ -136,8 +162,8 @@ class CombatMaster:
 
 
 player1= Player("", (0, 0), 100, 0, 100, 100, 1, 100, 100, 5, [], [simple_attack, godsmack_attack, simple_heal, octopus_fey], [octopus_feyBeta], [])
-squealfest = CombatMaster()
+squealfest = CombatMaster({})
 enemy_list = [octopus_fey, octopus_feyAlpha, octopus_feyBeta]
 #squealfest.skill_select(player1)
-squealfest.target_select(player1, enemy_list)
+squealfest.target_select(player1, enemy_list, simple_attack)
 

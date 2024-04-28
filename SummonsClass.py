@@ -16,3 +16,5 @@ class Summon(Creature):
         
         
 octopus_fey = Summon("Grizzly Octopus", "a fur-covered octopus that prominently displays his single beak.", [sklz.simple_attack, sklz.tentacle_choke], 30, 1, True)
+
+#option_print_iter("Will you control the summon? Will it control itself?", ("have a controlled summon", "have an independent summon"), 2)
