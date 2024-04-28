@@ -23,6 +23,8 @@ class Player:
         self.learnable_skills = learnable_skills #14
 
 ##################### movement handler #################
+    #option_print_iter("Whither willst thou go?", ("go North", "go South", "go West", "go East"), 4)
+
 
     def move_north(self):
 
