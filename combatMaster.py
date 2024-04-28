@@ -85,7 +85,7 @@ class CombatMaster:
             self.add_target (target)
             self.skill_duration_adder(target, skill_instance)
             return target
-        pllayer_instance = {}
+        
    
     def summon_turn(player_instance):
         the_environment = Map.check_environment()
@@ -129,6 +129,14 @@ class CombatMaster:
                 self.combatants_list.append(summon)
         self.combatants_list.append(player_instance)
         return self.combatants_list
+        
+    def decrement_duration(self, skill_instance)
+        for player in duration_dict.items():
+            for duration in skill:
+        # Subtract 1 from each value in the inner dictionary
+        skill[duration] -= 1
+        
+            
     
     def decrement_duration(self, skill_duration):
         skill_duration = self.duration_dict.get(skill_instance.skill_name)
