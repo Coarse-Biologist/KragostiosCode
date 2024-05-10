@@ -15,9 +15,9 @@ class Weapon(Item, Equipable):
         self.weponType = weaponType
 
     def getWeaponType(self) -> WeaponType:
-        return self.weponType
+        return self.weaponType
     def setWeaponType(self, type) -> None:
-        self.weponType = type
+        self.weaponType = type
     def getDamage(self) -> int:
         return self.damage
     def setDamage(self, damage) -> None:
