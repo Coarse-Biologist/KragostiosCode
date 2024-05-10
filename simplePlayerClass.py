@@ -5,9 +5,9 @@ import printSlowlyFunction as slo
 
 class Player:
 
-    def __init__(self, player_name: str, player_location: list, max_level_xp: int, xp_progress: int, max_hp: int, hp: int, hp_regen: int, max_mana: int, mana: int, mana_regen: int, player_inv: list, available_actions: list, has_summon:list, learnable_skills: list) -> None:
+    def __init__(self, creature_name: str, player_location: list, max_level_xp: int, xp_progress: int, max_hp: int, hp: int, hp_regen: int, max_mana: int, mana: int, mana_regen: int, player_inv: list, available_actions: list, has_summon:list, learnable_skills: list) -> None:
 
-        self.player_name = player_name #1
+        self.creature_name = creature_name #1
         self.player_location = player_location #2
         self.max_level_xp = max_level_xp #3
         self.xp_progress = xp_progress #4
@@ -102,11 +102,11 @@ class Player:
 
     def name_select(self):
 
-            player_name = input("What is your name?")
+            creature_name = input("What is your name?")
 
-            print(f"Greetings, most exalted {player_name}")
+            print(f"Greetings, most exalted {creature_name}")
 
-            return self.player_name
+            return self.creature_name
 
     def xp_up(self, difficulty_level):
         self.xp_progress += difficulty_level * 10
