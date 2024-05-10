@@ -35,7 +35,7 @@ class Skill:
             skill_charactaristic_dict.setdefault("debuff", (self.debuff))
         if self.skill_name == "push":
             skill_charactaristic_dict.setdefault("push", None)
-        print(self.skill_attributes_dict)
+        #print(self.skill_attributes_dict)
         return skill_charactaristic_dict     
          
 
@@ -48,22 +48,25 @@ def climb(self): #buff function
 ### debuffs ###
 def push(self):
     pass
+    print("smells")
 
 
 #skill library (needs to be organized and expanded)
         
-simple_attack = Skill("Attack", "A simple, but quick attack.", 1, 0, 5, 1, 0, [climb], [], {})
+skill1 = Skill("Attack", "A simple, but quick attack.", 1, 0, 5, 0, 0, [], [], {})
 
-godsmack_attack = Skill("Obliterate", "A divine strike.", 1, 100, 100, 0, 0, [], [], {})
+skill2 = Skill("Obliterate", "A divine strike.", 1, 100, 100, 0, 0, [], [], {})
 
-simple_heal = Skill("Touch of the healer", "A simple healing spell", 1, 20, 0, 0, 10, [], [], {})
-summon_livingFire = Skill("Summon Living Fire", "Fire and intellect leave you to become an independent, warming force", 20, 60, 0, 0, 0, [], [], {})
+skill3 = Skill("Touch of the healer", "A simple healing spell", 1, 20, 0, 0, 10, [], [], {})
+skill4 = Skill("Summon Living Fire", "Fire and intellect leave you to become an independent, warming force", 20, 60, 0, 0, 0, [], [], {})
     
-weak_invis = Skill("Obscure", "An ability that are wraps the caster in shadow and obscurity", 5, 60, 0, 0, 10, [], ["lower_hitchance1"], {})
+skill5 = Skill("Obscure", "An ability that are wraps the caster in shadow and obscurity", 5, 60, 0, 0, 10, [], ["lower_hitchance1"], {})
 
-tentacle_choke = Skill("Tentacle Choke", "An ability of many-armed monsters to wrap their tentacles around their target and squeezes with fearful force.", 1, 10, 20, 0, 0, [], [], {} ) #octopus_fey and similar creatures have access.
+skill6 = Skill("Tentacle Choke", "An ability of many-armed monsters to wrap their tentacles around their target and squeezes with fearful force.", 1, 10, 20, 0, 0, [], [], {} ) #octopus_fey and similar creatures have access.
 
 creature_climb = Skill("Climb", "Use the environment to ascend to high ground.", 99, 0, 0, 0, 0, [climb], [], {})
 
 creature_push = Skill("Push", "Give an all-out shove. What is behind the push? Whats behind the target?", 1, 0, 0, 0, 0, [], [], {})
 
+def push(self):
+    print("smells")
